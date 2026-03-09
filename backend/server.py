@@ -1,8 +1,8 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import engine, Base
-
 from routers import auth, books, voting, reading, lists, notes, stats, recommendations, staff
 
 app = FastAPI()
@@ -30,3 +30,11 @@ app.include_router(staff.router)
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+#Main Entry GCP
+if __name__ == "__main__":
+    import uvicorn
+
+    # Cloud Run sets PORT
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run("server:app", host="0.0.0.0", port=port)
