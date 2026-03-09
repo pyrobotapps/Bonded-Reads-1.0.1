@@ -1,0 +1,155 @@
+/* App specific styles */
+
+/* Navigation active state */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: hsl(var(--primary));
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Book cover aspect ratio */
+.book-cover {
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+/* Status badges */
+.status-badge {
+  @apply px-2.5 py-1 rounded-full text-xs font-medium;
+}
+
+.status-completed {
+  @apply bg-green-500/20 text-green-400;
+}
+
+.status-reading {
+  @apply bg-blue-500/20 text-blue-400;
+}
+
+.status-on-hold {
+  @apply bg-yellow-500/20 text-yellow-400;
+}
+
+.status-dnf {
+  @apply bg-red-500/20 text-red-400;
+}
+
+.status-want-to-read {
+  @apply bg-purple-500/20 text-purple-400;
+}
+
+.status-ongoing {
+  @apply bg-cyan-500/20 text-cyan-400;
+}
+
+/* ABO badge */
+.abo-badge {
+  @apply bg-pink-500/20 text-pink-400;
+}
+
+.non-abo-badge {
+  @apply bg-indigo-500/20 text-indigo-400;
+}
+
+/* Loader animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Card entrance animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+.stagger-7 { animation-delay: 0.35s; }
+.stagger-8 { animation-delay: 0.4s; }
+.stagger-9 { animation-delay: 0.45s; }
+.stagger-10 { animation-delay: 0.5s; }
+
+/* Filter panel */
+.filter-panel {
+  @apply p-6 rounded-2xl bg-card border border-border;
+}
+
+/* Hero gradient overlay */
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    hsl(var(--background) / 0.8) 70%,
+    hsl(var(--background)) 100%
+  );
+}
+
+/* Genre chips */
+.genre-chip {
+  @apply px-3 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.genre-chip:hover {
+  @apply bg-accent;
+  transform: scale(1.05);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background: hsl(var(--background) / 0.8);
+}
+
+/* Input focus glow for neon themes */
+[data-theme="neon-blue"] input:focus,
+[data-theme="neon-pink"] input:focus,
+[data-theme="neon-purple"] input:focus {
+  box-shadow: var(--neon-glow);
+}
+
+/* Button hover glow for neon themes */
+[data-theme="neon-blue"] .btn-primary:hover,
+[data-theme="neon-pink"] .btn-primary:hover,
+[data-theme="neon-purple"] .btn-primary:hover {
+  box-shadow: var(--neon-glow);
+}

@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Nunito:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme - Cozy, warm, paper-like */
+    --background: 30 50% 98%;
+    --foreground: 24 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 15%;
+    --primary: 347 77% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 24 10% 94%;
+    --secondary-foreground: 24 10% 15%;
+    --muted: 24 10% 94%;
+    --muted-foreground: 24 5% 45%;
+    --accent: 347 77% 95%;
+    --accent-foreground: 347 77% 45%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 24 10% 90%;
+    --input: 24 10% 90%;
+    --ring: 347 77% 60%;
+    --radius: 1rem;
+    --neon-glow: none;
+  }
+
+  [data-theme="dark"] {
+    /* Standard clean dark mode */
+    --background: 240 6% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 4% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 4% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 6% 10%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 64%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 0 0% 83%;
+    --neon-glow: none;
+  }
+
+  [data-theme="neon-blue"] {
+    /* Cyberpunk Blue */
+    --background: 0 0% 0%;
+    --foreground: 199 95% 94%;
+    --card: 0 0% 4%;
+    --card-foreground: 199 95% 94%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 199 95% 94%;
+    --primary: 188 94% 53%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 188 50% 15%;
+    --secondary-foreground: 188 94% 75%;
+    --muted: 188 30% 12%;
+    --muted-foreground: 188 30% 60%;
+    --accent: 188 94% 20%;
+    --accent-foreground: 188 94% 75%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 188 80% 35%;
+    --input: 188 30% 15%;
+    --ring: 188 94% 53%;
+    --neon-glow: 0 0 15px rgba(34, 211, 238, 0.4), 0 0 30px rgba(34, 211, 238, 0.2);
+  }
+
+  [data-theme="neon-pink"] {
+    /* Cyberpunk Pink */
+    --background: 0 0% 0%;
+    --foreground: 326 78% 95%;
+    --card: 0 0% 4%;
+    --card-foreground: 326 78% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 326 78% 95%;
+    --primary: 292 91% 73%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 292 50% 15%;
+    --secondary-foreground: 292 91% 85%;
+    --muted: 292 30% 12%;
+    --muted-foreground: 292 30% 60%;
+    --accent: 292 91% 20%;
+    --accent-foreground: 292 91% 85%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 292 80% 48%;
+    --input: 292 30% 15%;
+    --ring: 292 91% 73%;
+    --neon-glow: 0 0 15px rgba(232, 121, 249, 0.4), 0 0 30px rgba(232, 121, 249, 0.2);
+  }
+
+  [data-theme="neon-purple"] {
+    /* Cyberpunk Purple */
+    --background: 0 0% 0%;
+    --foreground: 270 100% 95%;
+    --card: 0 0% 4%;
+    --card-foreground: 270 100% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 270 100% 95%;
+    --primary: 263 70% 76%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 263 50% 15%;
+    --secondary-foreground: 263 70% 85%;
+    --muted: 263 30% 12%;
+    --muted-foreground: 263 30% 60%;
+    --accent: 263 70% 20%;
+    --accent-foreground: 263 70% 85%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 263 80% 55%;
+    --input: 263 30% 15%;
+    --ring: 263 70% 76%;
+    --neon-glow: 0 0 15px rgba(167, 139, 250, 0.4), 0 0 30px rgba(167, 139, 250, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+  }
+}
+
+/* Neon glow effects for active elements */
+[data-theme="neon-blue"] .neon-glow,
+[data-theme="neon-pink"] .neon-glow,
+[data-theme="neon-purple"] .neon-glow {
+  box-shadow: var(--neon-glow);
+}
+
+[data-theme="neon-blue"] .neon-border,
+[data-theme="neon-pink"] .neon-border,
+[data-theme="neon-purple"] .neon-border {
+  border-color: hsl(var(--primary));
+  box-shadow: var(--neon-glow);
+}
+
+/* Smooth transitions for theme changes */
+body,
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground) / 0.5);
+}
+
+/* Glass morphism helper */
+.glass {
+  backdrop-filter: blur(16px);
+  background: hsl(var(--background) / 0.7);
+  border: 1px solid hsl(var(--border) / 0.5);
+}
+
+/* Book card hover effect */
+.book-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card-hover:hover {
+  transform: translateY(-4px);
+}
+
+[data-theme="neon-blue"] .book-card-hover:hover,
+[data-theme="neon-pink"] .book-card-hover:hover,
+[data-theme="neon-purple"] .book-card-hover:hover {
+  box-shadow: var(--neon-glow);
+}
+
+/* Star rating styles */
+.star-rating .star {
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.star-rating .star:hover {
+  transform: scale(1.2);
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+}
