@@ -42,7 +42,7 @@ const HomePage = () => {
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-['Nunito'] leading-tight mb-6">
               Track Your Favorite
-              <span className="text-primary block mt-2">Boys Love Books</span>
+              <span className="text-primary block mt-2">BL Manhwa, Manhua, Manga, & Novels</span>
             </h1>
             
             <p className="text-lg text-muted-foreground mb-8 max-w-xl">
@@ -54,7 +54,7 @@ const HomePage = () => {
               <Link to="/checklists">
                 <Button size="lg" className="rounded-xl gap-2" data-testid="explore-btn">
                   <BookHeart className="h-5 w-5" />
-                  Explore Books
+                  Explore
                 </Button>
               </Link>
               <Link to="/register">
