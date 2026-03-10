@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, Text, Integer
+from sqlalchemy import Column, String, Text, Integer, ForeignKey
 from database import Base
 
 class User(Base):
