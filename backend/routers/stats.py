@@ -6,7 +6,7 @@ from database import get_db
 from models import ReadingStatus
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/stats", tags=["stats"])
+router = APIRouter(prefix="/api/auth/stats", tags=["stats"])
 
 
 def get_user_id(auth):

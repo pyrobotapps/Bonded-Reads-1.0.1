@@ -7,7 +7,7 @@ from models import ReadingStatus
 from schemas import ReadingStatusCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/reading-status", tags=["reading"])
+router = APIRouter(prefix="/api/auth/reading-status", tags=["reading"])
 
 
 def get_user_id(authorization: str):

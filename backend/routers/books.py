@@ -7,7 +7,7 @@ from database import get_db
 from models import Book
 from schemas import BookCreate, BookResponse
 
-router = APIRouter(prefix="/api/books", tags=["books"])
+router = APIRouter(prefix="/api/auth/books", tags=["books"])
 
 
 # GET ALL BOOKS

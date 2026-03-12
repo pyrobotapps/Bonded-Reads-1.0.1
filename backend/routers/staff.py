@@ -5,7 +5,7 @@ from sqlalchemy import select
 from database import get_db
 from models import User
 
-router = APIRouter(prefix="/api/staff", tags=["staff"])
+router = APIRouter(prefix="/api/auth/staff", tags=["staff"])
 
 
 @router.get("/list")

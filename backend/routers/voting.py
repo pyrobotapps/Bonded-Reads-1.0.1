@@ -7,7 +7,7 @@ from models import Vote
 from schemas import VoteCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/books", tags=["voting"])
+router = APIRouter(prefix="/api/auth/books", tags=["voting"])
 
 
 def get_user_id(authorization: str):

@@ -10,7 +10,7 @@ from auth_helpers import hash_password, verify_password, create_access_token, ve
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
-@router.post("/register")
+@router.post("/api/auth/register")
 async def register(data: RegisterSchema, db: AsyncSession = Depends(get_db)):
 
     result = await db.execute(select(User).where(User.email == data.email))
@@ -42,7 +42,7 @@ async def register(data: RegisterSchema, db: AsyncSession = Depends(get_db)):
     }
 
 
-@router.post("/login")
+@router.post("/api/auth/login")
 async def login(data: LoginSchema, db: AsyncSession = Depends(get_db)):
 
     result = await db.execute(select(User).where(User.email == data.email))
@@ -67,7 +67,7 @@ async def login(data: LoginSchema, db: AsyncSession = Depends(get_db)):
     }
 
 
-@router.get("/me")
+@router.get("/api/auth/me")
 async def get_me(
     authorization: str = Header(None),
     db: AsyncSession = Depends(get_db)
