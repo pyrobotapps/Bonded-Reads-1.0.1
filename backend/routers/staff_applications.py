@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from database import get_db
 from models import StaffApplication
 from schemas import StaffApplicationCreate
-from auth import verify_access_token
+from auth_helpers import verify_access_token
 
 router = APIRouter(prefix="/api/staff-applications", tags=["staff"])
 

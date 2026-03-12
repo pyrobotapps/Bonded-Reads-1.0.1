@@ -4,19 +4,27 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Neon uses postgres:// but async SQLAlchemy requires postgresql+asyncpg://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://",
+        "postgresql+asyncpg://"
+    )
+
 engine = create_async_engine(
     DATABASE_URL,
-    pool_pre_ping=True,
-    pool_recycle=300
+    echo=False,
+    future=True
 )
 
 AsyncSessionLocal = sessionmaker(
     engine,
-    class_=AsyncSession,
-    expire_on_commit=False
+    expire_on_commit=False,
+    class_=AsyncSession
 )
 
 Base = declarative_base()
+
 
 async def get_db():
     async with AsyncSessionLocal() as session:

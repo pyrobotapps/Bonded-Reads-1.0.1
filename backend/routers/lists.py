@@ -5,7 +5,7 @@ from sqlalchemy import select
 from database import get_db
 from models import List, ListBook
 from schemas import ListCreate
-from auth import verify_access_token
+from auth_helpers import verify_access_token
 
 router = APIRouter(prefix="/api/lists", tags=["lists"])
 
