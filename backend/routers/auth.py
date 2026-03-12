@@ -9,7 +9,7 @@ import os
 from database import get_db
 from models import User
 from schemas import RegisterSchema, LoginSchema
-from auth import hash_password, verify_password, create_access_token, verify_access_token
+from auth_helpers import hash_password, verify_password, create_access_token, verify_access_token
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
