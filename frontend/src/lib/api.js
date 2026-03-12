@@ -49,7 +49,7 @@ export var booksAPI = {
   create: function(data) { return api.post('/books', data); },
   update: function(id, data) { return api.put('/books/' + id, data); },
   delete: function(id) { return api.delete('/books/' + id); },
-  getGenres: function() { return api.get('/genres'); },
+  getGenres: function() { return api.get('books/genres'); },
   batchImport: function(books) { return api.post('/books/batch-import', { books: books }); },
 };
 
