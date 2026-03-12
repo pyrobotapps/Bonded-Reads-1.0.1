@@ -21,7 +21,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # replace later with Netlify domain
+    allow_origins=["https://bondedreads.netlify.app/"],  # replace later with Netlify domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
