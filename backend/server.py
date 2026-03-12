@@ -8,7 +8,7 @@ from routers import (
     auth,
     books,
     voting,
-    reading_status,
+    reading,
     lists,
     notes,
     stats,
@@ -31,7 +31,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(books.router)
 app.include_router(voting.router)
-app.include_router(reading_status.router)
+app.include_router(reading.router)
 app.include_router(lists.router)
 app.include_router(notes.router)
 app.include_router(stats.router)
