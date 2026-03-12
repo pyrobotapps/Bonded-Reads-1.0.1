@@ -8,21 +8,20 @@ from routers import (
     auth,
     books,
     voting,
-    reading,
+    reading_status,
     lists,
     notes,
     stats,
     recommendations,
     staff,
-    staff_applications,
+    staff_applications
 )
 
 app = FastAPI()
 
-# CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # replace later with Netlify domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,7 +31,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(books.router)
 app.include_router(voting.router)
-app.include_router(reading.router)
+app.include_router(reading_status.router)
 app.include_router(lists.router)
 app.include_router(notes.router)
 app.include_router(stats.router)
@@ -40,13 +39,11 @@ app.include_router(recommendations.router)
 app.include_router(staff.router)
 app.include_router(staff_applications.router)
 
-# Create database tables
 @app.on_event("startup")
 async def startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-# Run server
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8080))
