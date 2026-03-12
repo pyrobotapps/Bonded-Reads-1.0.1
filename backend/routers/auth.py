@@ -42,7 +42,7 @@ async def register(data: RegisterSchema, db: AsyncSession = Depends(get_db)):
     }
 
 
-@router.post("/api/auth/login")
+@router.post("/login")
 async def login(data: LoginSchema, db: AsyncSession = Depends(get_db)):
 
     result = await db.execute(select(User).where(User.email == data.email))
@@ -67,7 +67,7 @@ async def login(data: LoginSchema, db: AsyncSession = Depends(get_db)):
     }
 
 
-@router.get("/api/auth/me")
+@router.get("/me")
 async def get_me(
     authorization: str = Header(None),
     db: AsyncSession = Depends(get_db)
