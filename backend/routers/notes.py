@@ -7,7 +7,7 @@ from models import Note
 from schemas import NoteCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/auth/notes", tags=["notes"])
+router = APIRouter(prefix="/api/notes", tags=["notes"])
 
 
 def get_user_id(auth):

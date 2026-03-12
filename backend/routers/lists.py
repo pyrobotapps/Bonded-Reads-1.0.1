@@ -7,7 +7,7 @@ from models import List, ListBook
 from schemas import ListCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/auth/lists", tags=["lists"])
+router = APIRouter(prefix="/api/lists", tags=["lists"])
 
 
 def get_user_id(auth):

@@ -5,7 +5,7 @@ from models import StaffApplication
 from schemas import StaffApplicationCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/auth/staff-applications", tags=["staff"])
+router = APIRouter(prefix="/api/staff-applications", tags=["staff"])
 
 
 def get_user_id(auth):

@@ -7,7 +7,7 @@ from models import Recommendation
 from schemas import RecommendationCreate
 from auth_helpers import verify_access_token
 
-router = APIRouter(prefix="/api/auth/recommendations", tags=["recommendations"])
+router = APIRouter(prefix="/api/recommendations", tags=["recommendations"])
 
 
 def get_user_id(auth):
