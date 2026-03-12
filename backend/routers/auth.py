@@ -10,7 +10,7 @@ from auth_helpers import hash_password, verify_password, create_access_token, ve
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 
-@router.post("/api/auth/register")
+@router.post("/register")
 async def register(data: RegisterSchema, db: AsyncSession = Depends(get_db)):
 
     result = await db.execute(select(User).where(User.email == data.email))
