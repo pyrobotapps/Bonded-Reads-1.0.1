@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-var BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-var API_URL = BACKEND_URL + '/api';
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || 'https://bonded-reads-101-production.up.railway.app';
+const API_URL = BACKEND_URL + '/api';
 
-var api = axios.create({
+const api = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
